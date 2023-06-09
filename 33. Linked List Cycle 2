@@ -1,0 +1,35 @@
+ListNode *detectCycle(ListNode *head) {
+        
+        ListNode* slow= head, *fast=head, *entry=head;
+        if(head==NULL) return NULL;
+        while(fast->next!=NULL && fast->next->next!=NULL){
+            fast= fast->next->next;
+            slow=slow->next;
+            
+            if(slow==fast){
+                while(slow!=entry){
+                    slow=slow->next;
+                    entry=entry->next;
+                }
+                return slow;
+                
+            }
+            
+        }
+        return NULL;
+        
+        
+            
+        // unordered_set<ListNode*> set;
+        // ListNode* curr=head;
+        // while(curr!=NULL){
+        //     if(set.find(curr) != set.end()){
+        //         return curr;
+        //     }
+        //     else{
+        //         set.insert(curr);
+        //         curr=curr->next;
+        //     }
+        // }
+        // return NULL;
+    }
