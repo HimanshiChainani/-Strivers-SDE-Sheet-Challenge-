@@ -1,0 +1,20 @@
+void MyQueue :: push(int x)
+{
+        // Your Code
+        if(rear!=100005){
+            arr[rear]=x;
+            rear++;
+        }
+}
+
+int MyQueue :: pop()
+{
+        // Your Code
+        int temp=-1;
+        if(rear!=front){
+            temp=arr[front];
+            front++;
+        }
+        return temp;
+        
+}
