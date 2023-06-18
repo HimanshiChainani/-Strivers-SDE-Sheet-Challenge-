@@ -1,0 +1,17 @@
+TreeNode<int> * smallest(TreeNode<int> *root, int &k){
+    if(root==NULL) return NULL;
+    TreeNode<int> * left= smallest(root->left, k);
+    if(left!=NULL) return left;
+    k--;
+    if(k==0) return root;
+    return smallest(root->right, k);
+}
+
+
+int kthSmallest(TreeNode<int> *root, int k)
+{
+	//	Write the code here.
+    TreeNode<int> * val= smallest(root, k);
+    if(val==NULL) return -1;
+    return val->data;
+}
