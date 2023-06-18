@@ -1,0 +1,17 @@
+TreeNode<int>* largest(TreeNode<int>* root, int& k) {
+    if (root == NULL) return NULL;
+
+    TreeNode<int>* right = largest(root->right, k);
+    if (right != NULL) return right;
+
+    k--;
+    if (k == 0) return root;
+
+    return largest(root->left, k);
+}
+
+int KthLargestNumber(TreeNode<int>* root, int k) {
+    TreeNode<int>* val = largest(root, k);
+    if (val == NULL) return -1;
+    return val->data;
+}
